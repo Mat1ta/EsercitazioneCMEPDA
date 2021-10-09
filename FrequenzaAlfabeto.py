@@ -11,6 +11,8 @@ parser.add_argument('-isto', '--istogramma', help='print the histogram of the fr
 args= parser.parse_args()
 
 def from_txt_to_str(txt=None):
+    '''questa funzione prende come argomento il nome del file txt da analizzare (preso da termianle), e restituisce il testo all'interno come un'unica stringa
+        '''
     file = open(txt,'r')
     file.seek(0)
     file.close
