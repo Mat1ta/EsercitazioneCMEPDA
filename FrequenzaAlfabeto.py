@@ -3,7 +3,7 @@ import argparse
 import logging
 import time
 import string
-#import matplotlip.pyplot as plt
+import matplotlip.pyplot as plt
 
 parser = argparse.ArgumentParser(description='measure the relative frequency of the letters of the alphabet in a text')
 parser.add_argument('testo', help='insert the file .txt that you want to be analysed')
