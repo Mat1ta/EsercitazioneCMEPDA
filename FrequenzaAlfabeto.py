@@ -11,22 +11,30 @@ parser.add_argument('-isto', '--istogramma', help='print the histogram of the fr
 args= parser.parse_args()
 
 def from_txt_to_str(txt=None):
+    """it opens and read the file, it returns a string with all the contents of the given file
+    """
     file = open(txt,'r')
     file.seek(0)
     file.close
     return file.read()
 
-def print_dictonary (txt = None , dict = None):
+def print_dictionary (txt = None , dict = None):
+    """it counts the frequency of each letter, and save all in the given dictionary
+    """
     for val in txt:
     if val.isalpha():
         dict[val]=dict[val]+1
     i=i+1
 
 def histogram (dict = None):
+    """it plots and show the histogram of the frequencies that are saved in the given dictionary
+    """
     if args.istogramma:
         plt.bar(list(dic.keys()), dic.values(), color='b')
         plt.show()
         
 test=from_txt_to_str(args.testo)
 dic = { key : 0 for key in string.ascii_lowercase }
-print(dict)
+#print(dict)
+print_dictionary(txt=test, dict=dic)
+print(dic)
