@@ -11,6 +11,7 @@ parser.add_argument('testo', help='insert the file .txt that you want to be anal
 parser.add_argument('-isto', '--istogramma', help='print the histogram of the frequences', action='store_true')
 args= parser.parse_args()
 
+import unittest
 def from_txt_to_str(txt=None):
     """it opens and read the file, it returns a string with all the contents of the given file
     """
@@ -28,6 +29,7 @@ def dictionary (txt = None , dict = None):
             dict[val]=dict[val]+1
         return dict
 
+
 def histogram (dict = None):
     """it plots and show the histogram of the frequencies that are saved in the given dictionary
     """
@@ -40,3 +42,4 @@ dic = { key : 0 for key in string.ascii_lowercase}
 test=from_txt_to_str(args.testo)
 dic=dictionary(txt=test, dict=dic)
 if args.istogramma: histogram(dic)
+
