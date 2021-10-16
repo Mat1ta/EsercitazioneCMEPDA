@@ -5,11 +5,7 @@ import time
 import string
 import matplotlip.pyplot as plt
 
-parser = argparse.ArgumentParser(description='measure the relative frequency of the letters of the alphabet in a text')
-parser.add_argument('testo', help='insert the file .txt that you want to be analysed')
-parser.add_argument('-isto', '--istogramma', help='print the histogram of the frequences", action="store_true')
-args= parser.parse_args()
-
+import unittest
 def from_txt_to_str(txt=None):
     """it opens and read the file, it returns a string with all the contents of the given file
     """
@@ -35,6 +31,13 @@ def histogram (dict = None):
         
 test=from_txt_to_str(args.testo)
 dic = { key : 0 for key in string.ascii_lowercase }
-#print(dict)
 print_dictionary(txt=test, dict=dic)
 print(dic)
+
+if __name__=="__main__":
+    parser = argparse.ArgumentParser(description='measure the relative frequency of the letters of the alphabet in a text')
+    parser.add_argument('testo', help='insert the file .txt that you want to be analysed')
+    parser.add_argument('-isto', '--istogramma', help='print the histogram of the frequences", action="store_true')
+    args= parser.parse_args()
+    unitest.main()
+    
