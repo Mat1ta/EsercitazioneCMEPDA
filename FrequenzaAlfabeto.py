@@ -3,7 +3,7 @@ import argparse
 import logging
 import time
 import string
-import matplotlip.pyplot as plt
+import matplotlib.pyplot as plt
 
 import unittest
 def from_txt_to_str(txt=None):
@@ -39,5 +39,5 @@ if __name__=="__main__":
     parser.add_argument('testo', help='insert the file .txt that you want to be analysed')
     parser.add_argument('-isto', '--istogramma', help='print the histogram of the frequences", action="store_true')
     args= parser.parse_args()
-    unitest.main()
+    #unitest.main()
     
