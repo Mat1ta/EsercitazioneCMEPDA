@@ -4,10 +4,11 @@ import logging
 import time
 import string
 import matplotlip.pyplot as plt
+import unittest
 
 parser = argparse.ArgumentParser(description='measure the relative frequency of the letters of the alphabet in a text')
 parser.add_argument('testo', help='insert the file .txt that you want to be analysed')
-parser.add_argument('-isto', '--istogramma', help='print the histogram of the frequences", action="store_true')
+parser.add_argument('-isto', '--istogramma', help='print the histogram of the frequences', action='store_true')
 args= parser.parse_args()
 
 def from_txt_to_str(txt=None):
@@ -18,23 +19,24 @@ def from_txt_to_str(txt=None):
     file.close
     return file.read()
 
-def print_dictionary (txt = None , dict = None):
+def dictionary (txt = None , dict = None):
     """it counts the frequency of each letter, and save all in the given dictionary
     """
-    for val in txt:
-    if val.isalpha():
-        dict[val]=dict[val]+1
-    i=i+1
+    Testo=txt.lower()
+    for val in Testo:
+        if val.isalpha():
+            dict[val]=dict[val]+1
+        return dict
 
 def histogram (dict = None):
     """it plots and show the histogram of the frequencies that are saved in the given dictionary
     """
-    if args.istogramma:
-        plt.bar(list(dic.keys()), dic.values(), color='b')
-        plt.show()
-        
+    plt.bar(list(dic.keys()), dic.values(), color='b')
+    plt.show()
+
+
+
+dic = { key : 0 for key in string.ascii_lowercase}
 test=from_txt_to_str(args.testo)
-dic = { key : 0 for key in string.ascii_lowercase }
-#print(dict)
-print_dictionary(txt=test, dict=dic)
-print(dic)
+dic=dictionary(txt=test, dict=dic)
+if args.istogramma: histogram(dic)
